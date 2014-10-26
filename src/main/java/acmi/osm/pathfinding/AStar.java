@@ -1,7 +1,6 @@
 package acmi.osm.pathfinding;
 
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.logging.Logger;
@@ -24,10 +23,10 @@ public final class AStar<Node> implements PathFinding<Node> {
     public List<Node> findPath(Node start, Node goal) {
         Set<Node> closedSet = new HashSet<>();
 
-        Map<Node, Double> gScore = new ConcurrentHashMap<>();
+        Map<Node, Double> gScore = new HashMap<>();
         gScore.put(start, 0.0);
 
-        Map<Node, Double> fScore = new ConcurrentHashMap<>();
+        Map<Node, Double> fScore = new HashMap<>();
         fScore.put(start, gScore.get(start) + heuristicCostEstimate.apply(start, goal));
 
         Queue<Node> openSet = new PriorityQueue<>((n1, n2) -> Double.compare(fScore.get(n1), fScore.get(n2)));
@@ -48,7 +47,7 @@ public final class AStar<Node> implements PathFinding<Node> {
 
             closedSet.add(current);
 
-            StreamSupport.stream(neighborNodes.apply(current).spliterator(), true).forEach(neighbor -> {
+            StreamSupport.stream(neighborNodes.apply(current).spliterator(), false).forEach(neighbor -> {
                 if (closedSet.contains(neighbor))
                     return;
 

@@ -8,6 +8,8 @@ import org.openstreetmap.xml.Way;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigInteger;
 import java.util.List;
@@ -15,13 +17,9 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 public class OsmMethods {
-    public static Osm parse(File file) {
-        try {
-            return (Osm)JAXBContext.newInstance("org.openstreetmap.xml")
-                    .createUnmarshaller()
-                    .unmarshal(file);
-        } catch (JAXBException e) {
-            throw new RuntimeException(e);
+    public static Osm parse(File file) throws IOException{
+        try(InputStream is = new FileInputStream(file)){
+            return parse(is);
         }
     }
 

@@ -31,7 +31,7 @@ public class OsmPathFinding implements PathFinding<Node> {
 
             log.fine(node::toString);
 
-            highways.parallelStream().forEach(way -> {
+            highways.stream().forEach(way -> {
                 int index = indexOf(way.getNodes(), nd -> nd.getRef().equals(node.getId()));
 
                 if (index == -1)
