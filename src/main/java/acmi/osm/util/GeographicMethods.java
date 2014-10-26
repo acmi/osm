@@ -1,6 +1,6 @@
 package acmi.osm.util;
 
-import org.openstreetmap.xml.Node;
+import org.openstreetmap.model.Node;
 
 import static java.lang.Math.*;
 
@@ -17,5 +17,9 @@ public class GeographicMethods {
 
     public static double distBetween(Node n1, Node n2) {
         return distBetween(n1.getLat(), n1.getLon(), n2.getLat(), n2.getLon());
+    }
+
+    public static double simpleDistBetween(Node n1, Node n2){
+        return Math.sqrt(Math.pow(n1.getLat()-n2.getLat(), 2)+Math.pow(n1.getLon()-n2.getLon(), 2));
     }
 }

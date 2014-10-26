@@ -28,9 +28,4 @@ public class Node extends OsmBasicType {
     public void setLon(float lon) {
         this.lon = lon;
     }
-
-    @Override
-    public String toString() {
-        return getClass().getSimpleName() + "(id: " + String.valueOf(getId()) + ", lat: " + String.valueOf(lat) + ", lon: " + String.valueOf(lon) + ")";
-    }
 }

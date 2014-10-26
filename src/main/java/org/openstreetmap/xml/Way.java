@@ -14,9 +14,4 @@ public class Way extends OsmBasicType {
     public final List<Nd> getNodes() {
         return nodes;
     }
-
-    @Override
-    public String toString() {
-        return getClass().getSimpleName() + "(id: " + String.valueOf(getId()) + ")";
-    }
 }

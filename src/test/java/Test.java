@@ -1,8 +1,8 @@
 import acmi.osm.pathfinding.OsmPathFinding;
 import acmi.osm.pathfinding.PathFinding;
 import acmi.osm.util.OsmMethods;
-import org.openstreetmap.xml.Node;
-import org.openstreetmap.xml.Osm;
+import org.openstreetmap.model.Node;
+import org.openstreetmap.model.Osm;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -32,8 +32,8 @@ public class Test {
 
         Osm osm = OsmMethods.parse(Test.class.getResourceAsStream("/map"));
 
-        Node start = OsmMethods.getNodeById(osm, new BigInteger("255598049"));
-        Node end = OsmMethods.getNodeById(osm, new BigInteger("480676619"));
+        Node start = osm.getNodes().get(new BigInteger("255598049"));
+        Node end = osm.getNodes().get(new BigInteger("480676619"));
 
         PathFinding<Node> pathFinding = new OsmPathFinding(osm);
         List<Node> path = pathFinding.findPath(start, end);
