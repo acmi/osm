@@ -8,10 +8,14 @@ public final class Node extends OsmBasicType {
     private final double lat;
     private final double lon;
 
+    private final String toString;
+
     public Node(BigInteger id, String user, BigInteger uid, GregorianCalendar timestamp, Integer changeset, Integer version, Boolean visible, Map<String, String> tags, double lat, double lon) {
         super(id, user, uid, timestamp, changeset, version, visible, tags);
         this.lat = lat;
         this.lon = lon;
+
+        this.toString = getClass().getSimpleName() + "(id: " + String.valueOf(getId()) + ", lat: " + String.valueOf(getLat()) + ", lon: " + String.valueOf(getLon()) + ")";
     }
 
     public double getLat() {
@@ -24,6 +28,6 @@ public final class Node extends OsmBasicType {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + "(id: " + String.valueOf(getId()) + ", lat: " + String.valueOf(getLat()) + ", lon: " + String.valueOf(getLon()) + ")";
+        return toString;
     }
 }

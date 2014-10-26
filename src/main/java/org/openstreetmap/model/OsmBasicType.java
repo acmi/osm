@@ -1,7 +1,8 @@
 package org.openstreetmap.model;
 
 import java.math.BigInteger;
-import java.util.*;
+import java.util.GregorianCalendar;
+import java.util.Map;
 
 public class OsmBasicType {
     private final BigInteger id;
