@@ -19,7 +19,7 @@ public class GeographicMethods {
         return distBetween(n1.getLat(), n1.getLon(), n2.getLat(), n2.getLon());
     }
 
-    public static double simpleDistBetween(Node n1, Node n2){
-        return Math.sqrt(Math.pow(n1.getLat()-n2.getLat(), 2)+Math.pow(n1.getLon()-n2.getLon(), 2));
+    public static double simpleDistBetween(Node n1, Node n2) {
+        return Math.sqrt(Math.pow(n1.getLat() - n2.getLat(), 2) + Math.pow(n1.getLon() - n2.getLon(), 2));
     }
 }

@@ -1,17 +1,17 @@
 package acmi.osm.pathfinding;
 
+import acmi.osm.util.GeographicMethods;
 import org.openstreetmap.model.Node;
 import org.openstreetmap.model.Osm;
 import org.openstreetmap.model.Way;
-import acmi.osm.util.GeographicMethods;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 import java.util.logging.Logger;
 
-import static java.util.Collections.synchronizedList;
 import static acmi.osm.util.OsmMethods.getHighways;
+import static java.util.Collections.synchronizedList;
 
 public class OsmPathFinding implements PathFinding<Node> {
     private static Logger log = Logger.getLogger(OsmPathFinding.class.getName());
