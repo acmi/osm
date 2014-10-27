@@ -62,10 +62,15 @@ public class XmlToModelMapper implements Function<org.openstreetmap.xml.Osm, Osm
                                 mapMembers(n.getMembers(), nodes, ways))
                 ));
         return new Osm(
+                mapBounds(osm.getBounds()),
                 Collections.unmodifiableMap(nodes),
                 Collections.unmodifiableMap(ways),
                 Collections.unmodifiableMap(relations)
         );
+    }
+
+    private Osm.Bounds mapBounds(org.openstreetmap.xml.Osm.Bounds bounds) {
+        return new Osm.Bounds(bounds.getMinlat(), bounds.getMinlon(), bounds.getMaxlat(), bounds.getMaxlon());
     }
 
     private Map<String, String> mapTags(List<Tag> tags) {
