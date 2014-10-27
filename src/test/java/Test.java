@@ -32,8 +32,8 @@ public class Test {
 
         Osm osm = OsmMethods.parse(Test.class.getResourceAsStream("/map"));
 
-        Node start = osm.getNodes().get(new BigInteger("255598049"));
-        Node end = osm.getNodes().get(new BigInteger("480676619"));
+        Node start = osm.getNodes().get(new BigInteger("312448822"));
+        Node end = osm.getNodes().get(new BigInteger("2583523158"));
 
         PathFinding<Node> pathFinding = new OsmPathFinding(osm);
         List<Node> path = pathFinding.findPath(start, end);
